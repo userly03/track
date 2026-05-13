@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TrackBuild{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <h1>TrackBuild</h1>
+        {% if user.is_authenticated %}
+            <nav>
+                <a href="/dashboard/">Dashboard</a>
+                <a href="/projects/">Proyectos</a>
+                <a href="/purchases/">Compras</a>
+                <a href="/documents/">Documentos</a>
+                <a href="/logout/">Cerrar sesión</a>
+            </nav>
+        {% endif %}
+    </header>
+
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>TrackBuild © 2025</p>
+    </footer>
+</body>
+</html>
