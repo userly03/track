@@ -23,12 +23,16 @@ from history.services import log_action
 
 def calculate_file_hash(file_obj) -> str:
     """
-    Calcula el hash SHA256 del archivo físico.
-    Lectura eficiente en chunks.
+    Calcula SHA256 y reinicia el puntero del archivo.
     """
     sha256 = hashlib.sha256()
+
     for chunk in file_obj.chunks():
         sha256.update(chunk)
+
+    # 🔥 IMPORTANTE
+    file_obj.seek(0)
+
     return sha256.hexdigest()
 
 
@@ -84,45 +88,63 @@ def detect_duplicate(project, file_hash: str) -> Optional[Document]:
 def create_new_version(document: Document, user=None) -> Document:
     """
     Genera una nueva versión del documento.
-    Se duplica metadata y se incrementa version_number.
-    NOTA: El archivo debe ser reemplazado antes de llamar esta función.
+    Crea un NUEVO registro en lugar de modificar el existente
     """
-    new_version_number = document.version_number + 1
-
-    doc = document
-    doc.version_number = new_version_number
-
-    # previous_hash se asigna en el save()
-    doc._current_user = user
-    doc.updated_by = user
-    doc.last_modified_by = user
-    doc.save()
-
+    from django.core.files.base import ContentFile
+    
+    # Crear un nuevo documento con versión incrementada
+    new_doc = Document.objects.create(
+        project=document.project,
+        purchase=document.purchase,
+        delivery=document.delivery,
+        progress_report=document.progress_report,
+        title=document.title,
+        description=document.description,
+        metadata=document.metadata.copy(),
+        author=document.author,
+        document_type=document.document_type,
+        issue_date=document.issue_date,
+        responsible_area=document.responsible_area,
+        sensitivity_level=document.sensitivity_level,
+        status=document.status,
+        version_number=document.version_number + 1,
+        original_hash=document.original_hash or document.file_hash,
+        previous_hash=document.content_hash,
+        uploaded_by=document.uploaded_by,
+        updated_by=user,
+        last_modified_by=user,
+    )
+    
+    # Copiar el archivo físico
+    if document.file:
+        with document.file.open('rb') as f:
+            new_doc.file.save(document.file.name, ContentFile(f.read()), save=False)
+    
+    new_doc.save()
+    
     # Registrar historial
     DocumentHistory.objects.create(
-        document=doc,
-        version_number=new_version_number,
-        file_hash=doc.file_hash,
-        content_hash=doc.content_hash,
-        previous_hash=doc.previous_hash,
+        document=new_doc,
+        version_number=new_doc.version_number,
+        file_hash=new_doc.file_hash,
+        content_hash=new_doc.content_hash,
+        previous_hash=new_doc.previous_hash,
         event_type="version_created",
         performed_by=user,
-        metadata_snapshot=doc.metadata,
-        comment=f"Nueva versión generada (v{new_version_number}).",
+        metadata_snapshot=new_doc.metadata,
+        comment=f"Nueva versión generada (v{new_doc.version_number}).",
     )
-
-    # Registrar en History global
+    
     log_action(
         action_type="document_version_created",
         user=user,
-        instance_before=None,
-        instance_after=doc,
-        project=doc.project,
-        metadata={"version": new_version_number},
+        instance_before=document,
+        instance_after=new_doc,
+        project=new_doc.project,
+        metadata={"version": new_doc.version_number},
     )
-
-    return doc
-
+    
+    return new_doc
 
 # ============================================================
 # 🟦 PROCESAR SUBIDA DE DOCUMENTO (VÍA VIEW)
@@ -201,18 +223,40 @@ def process_document_upload(
     )
 
     if existing:
-        # Reemplazar archivo
-        existing.file = file
-        existing.description = description
-        existing.metadata = metadata
-        existing.author = author
-        existing.document_type = document_type
-        existing.issue_date = issue_date
-        existing.responsible_area = responsible_area
-        existing.sensitivity_level = sensitivity_level
-        existing._current_user = user
-
-        return create_new_version(existing, user=user)
+        # Crear nueva versión (NO modificar el existing)
+        new_doc = Document.objects.create(
+            project=project,
+            title=title,
+            description=description,
+            file=file,
+            file_hash=file_hash,
+            original_hash=existing.original_hash or existing.file_hash,
+            previous_hash=existing.content_hash,
+            metadata=metadata,
+            author=author,
+            document_type=document_type,
+            issue_date=issue_date,
+            responsible_area=responsible_area,
+            sensitivity_level=sensitivity_level,
+            version_number=existing.version_number + 1,
+            last_modified_by=user,
+            uploaded_by=existing.uploaded_by,
+            updated_by=user,
+        )
+        
+        DocumentHistory.objects.create(
+            document=new_doc,
+            version_number=new_doc.version_number,
+            file_hash=new_doc.file_hash,
+            content_hash=new_doc.content_hash,
+            previous_hash=new_doc.previous_hash,
+            event_type="version_created",
+            performed_by=user,
+            metadata_snapshot=new_doc.metadata,
+            comment=f"Versión {new_doc.version_number} creada",
+        )
+        
+        return new_doc
 
     # 4. Crear documento inicial
     new_doc = Document.objects.create(
