@@ -24,9 +24,10 @@ COPY . .
 # Evitar buffering en logs
 ENV PYTHONUNBUFFERED=1
 
-# Copiar entrypoint
-COPY entrypoint.sh .
-RUN chmod +x entrypoint.sh
+# Copiar entrypoint fuera de /app para que no quede sobrescrito por el bind mount
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+# Normalize Windows CRLF to LF and make entrypoint executable
+RUN sed -i 's/\r$//' /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/entrypoint.sh
 
 # Usar entrypoint que espera a PostgreSQL
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
