@@ -20,7 +20,7 @@ from history.services import log_action
 # 🔐 PERMISOS A NIVEL PRO — MULTIROL
 # ============================================================
 
-ALLOWED_ROLES = ("supervisor", "auditor", "contador", "admin")
+ALLOWED_ROLES = tuple(role for role, _ in User.ROLE_CHOICES)
 
 
 def ensure_user_can_validate(user: User):

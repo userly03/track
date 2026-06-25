@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import User
+from .models import SocialAccount, User
 
 
 @admin.register(User)
@@ -40,3 +40,11 @@ class UserAdmin(BaseUserAdmin):
 
     search_fields = ("username", "email")
     ordering = ("id",)
+
+
+@admin.register(SocialAccount)
+class SocialAccountAdmin(admin.ModelAdmin):
+    list_display = ("id", "provider", "provider_user_id", "email", "user", "created_at")
+    search_fields = ("provider_user_id", "email", "user__username")
+    list_filter = ("provider",)
+    readonly_fields = ("created_at", "updated_at")

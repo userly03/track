@@ -1,5 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models import Q
+from django.db.models.functions import Lower
+from django.conf import settings
 import hashlib
 
 
@@ -42,3 +45,43 @@ class User(AbstractUser):
             self.digital_signature = self._generate_digital_signature()
 
         super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "user"
+        verbose_name_plural = "users"
+        constraints = [
+            models.UniqueConstraint(
+                Lower("email"),
+                condition=~Q(email=""),
+                name="unique_non_empty_user_email_ci",
+            )
+        ]
+
+
+class SocialAccount(models.Model):
+    PROVIDER_GOOGLE = "google"
+    PROVIDER_CHOICES = (
+        (PROVIDER_GOOGLE, "Google"),
+    )
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="social_accounts",
+    )
+    provider = models.CharField(max_length=50, choices=PROVIDER_CHOICES)
+    provider_user_id = models.CharField(max_length=255)
+    email = models.EmailField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["provider", "provider_user_id"],
+                name="unique_social_provider_user_id",
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.provider}:{self.provider_user_id} -> {self.user_id}"

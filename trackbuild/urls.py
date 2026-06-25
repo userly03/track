@@ -3,10 +3,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+from rest_framework.permissions import AllowAny
+from rest_framework_simplejwt.views import TokenObtainPairView
+from users.views import PublicTokenRefreshView
+
+
+class PublicTokenObtainPairView(TokenObtainPairView):
+    permission_classes = [AllowAny]
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,8 +28,8 @@ urlpatterns = [
     path("api/reporting/", include("reporting.urls")),
     path("api/search/", include("search.urls")),
     # JWT AUTH
-    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/token/", PublicTokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", PublicTokenRefreshView.as_view(), name="token_refresh"),
 ]
 
 # MEDIA & STATIC FILES EN DESARROLLO

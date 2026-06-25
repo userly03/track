@@ -13,11 +13,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Cargar variables del archivo .env
 load_dotenv(BASE_DIR / ".env")
 
+
+def env_list(name, default=""):
+    return [item.strip() for item in os.getenv(name, default).split(",") if item.strip()]
+
 # SECRET KEY desde .env
 SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key-if-missing")
 
 # DEBUG
 DEBUG = os.getenv("DEBUG", "False") == "True"
+
+# Google OAuth
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
 
 # Para Docker, frontend y móviles
 ALLOWED_HOSTS = ["*"]
@@ -38,6 +45,7 @@ INSTALLED_APPS = [
     # Third-party
     "rest_framework",
     "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
     "corsheaders",
     "django_filters",
     "django_extensions",
@@ -75,7 +83,11 @@ ROOT_URLCONF = "trackbuild.urls"
 AUTH_USER_MODEL = "users.User"
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = os.getenv("CORS_ALLOW_ALL_ORIGINS", "False") == "True"
+CORS_ALLOWED_ORIGINS = env_list(
+    "CORS_ALLOWED_ORIGINS",
+    "http://localhost:3000,http://localhost:5173,http://127.0.0.1:3000,http://127.0.0.1:5173",
+)
 CORS_ALLOW_CREDENTIALS = True
 
 
@@ -151,6 +163,9 @@ MEDIA_ROOT = BASE_DIR / "media"
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticated",
     ),
 }
 
