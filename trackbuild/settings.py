@@ -27,7 +27,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
 
 # Para Docker, frontend y móviles
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = env_list("ALLOWED_HOSTS", "*")
 
 
 # ============================================================
@@ -83,7 +83,9 @@ ROOT_URLCONF = "trackbuild.urls"
 AUTH_USER_MODEL = "users.User"
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS = os.getenv("CORS_ALLOW_ALL_ORIGINS", "False") == "True"
+CORS_ALLOW_ALL_ORIGINS = (
+    os.getenv("CORS_ALLOW_ALL_ORIGINS", "False") == "True" and DEBUG
+)
 CORS_ALLOWED_ORIGINS = env_list(
     "CORS_ALLOWED_ORIGINS",
     "http://localhost:3000,http://localhost:5173,http://127.0.0.1:3000,http://127.0.0.1:5173",
