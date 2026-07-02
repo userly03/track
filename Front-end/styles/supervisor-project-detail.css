@@ -1,0 +1,163 @@
+/* =============================================
+   SUPERVISOR – PROJECT DETAIL (UI CLEAN)
+============================================= */
+
+.detail-container {
+  padding: 32px 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.detail-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0d6832;
+}
+
+.detail-subtitle {
+  font-size: 15px;
+  color: #475569;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-secondary {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #0d6832;
+  background: white;
+  color: #0d6832;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background: #e6f4ec;
+}
+
+/* CARDS */
+.detail-card {
+  background: white;
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 28px;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0d6832;
+  margin-bottom: 18px;
+}
+
+/* GRID */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 13px;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* STATUS BADGES */
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+.status-badge.active {
+  background: #0d6832;
+}
+
+.status-badge.paused {
+  background: #d97706;
+}
+
+.status-badge.completed {
+  background: #2563eb;
+}
+
+.status-badge.cancelled {
+  background: #dc2626;
+}
+
+/* PROGRESS BAR */
+.progress-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #0d6832;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* METADATA BOX */
+.metadata-box {
+  padding: 16px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  font-family: monospace;
+}
+
+.hash-value {
+  font-size: 11px;
+  font-family: monospace;
+  color: #374151;
+  background: #f1f5f9;
+  padding: 8px;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: block;
+  max-width: 100%;
+}

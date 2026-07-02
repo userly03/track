@@ -2,7 +2,7 @@ from django.http import FileResponse, Http404
 import os
 
 from rest_framework import generics, status
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -20,6 +20,7 @@ from .services import process_document_upload
 
 # Auditoría global
 from history.services import log_action
+from users.permissions import IsAdminOrReadOnly
 
 
 # ============================================================
@@ -36,6 +37,7 @@ class DocumentListCreateView(generics.ListCreateAPIView):
 
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
+    permission_classes = [IsAdminOrReadOnly]
     parser_classes = (MultiPartParser, FormParser)
 
     def get_queryset(self):
@@ -75,7 +77,8 @@ class DocumentListCreateView(generics.ListCreateAPIView):
 class DocumentDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
-    parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [IsAdminOrReadOnly]
+    parser_classes = (MultiPartParser, FormParser, JSONParser)
 
     def get_object(self):
         return get_document_by_id(self.kwargs.get("pk"))
@@ -140,6 +143,7 @@ class DocumentDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class DocumentUploadView(APIView):
     parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [IsAdminOrReadOnly]
 
     def post(self, request):
         serializer = DocumentUploadSerializer(
@@ -162,6 +166,8 @@ class DocumentUploadView(APIView):
 
 
 class DocumentVersionsView(APIView):
+    permission_classes = [IsAdminOrReadOnly]
+
     def get(self, request, pk):
         doc = get_document_by_id(pk)
 
@@ -173,7 +179,12 @@ class DocumentVersionsView(APIView):
             "document_id": doc.id,
             "current_version": doc.version_number,
             "versions": [
-                {"version": d.version_number, "hash": d.content_hash} for d in versions
+                {
+                    "version": d.version_number,
+                    "hash": d.content_hash,
+                    "created_at": d.created_at,
+                }
+                for d in versions
             ],
         }
 
@@ -188,6 +199,7 @@ class DocumentVersionsView(APIView):
 
 class DocumentHistoryView(generics.ListAPIView):
     serializer_class = DocumentHistorySerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         document_id = self.kwargs.get("pk")
@@ -207,6 +219,8 @@ class DocumentDownloadView(APIView):
 
     GET /api/documents/<id>/download/
     """
+
+    permission_classes = [IsAdminOrReadOnly]
 
     def get(self, request, pk):
         doc = get_document_by_id(pk)

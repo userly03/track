@@ -1,0 +1,99 @@
+/* ===========================================================
+   DASHBOARD CORE STYLE - TrackBuild Unified System
+=========================================================== */
+
+:root {
+  --primary: #2563eb;
+  --primary-light: #dbeafe;
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+  --warning: #d97706;
+  --warning-light: #fef3c7;
+  --success: #059669;
+  --success-light: #d1fae5;
+  --info: #1e40af;
+  --info-light: #dbeafe;
+
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-300: #e5e7eb;
+  --gray-500: #6b7280;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.dashboard-header {
+  margin-bottom: 24px;
+}
+
+.dashboard-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.dashboard-subtitle {
+  font-size: 14px;
+  color: var(--gray-500);
+}
+
+/* SEARCH BAR */
+.global-search-form {
+  display: flex;
+  gap: 12px;
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 32px;
+}
+
+.global-search-input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 2px solid var(--gray-300);
+}
+
+.global-search-button {
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.global-search-button:hover {
+  background: #1d4ed8;
+}
+
+/* FILTERS */
+.dashboard-filters {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+
+.filter-group select {
+  padding: 8px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+}
+
+.filter-checkbox {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}

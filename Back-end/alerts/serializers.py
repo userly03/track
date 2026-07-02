@@ -20,6 +20,7 @@ class AlertSerializer(serializers.ModelSerializer):
             "message",
             "status",
             "created_at",
+            "resolved_at",
             "item_type",
             "item_id",
             "metadata",

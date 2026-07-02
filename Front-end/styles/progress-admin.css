@@ -1,0 +1,217 @@
+/* ==========================================================
+   PROGRESS REPORTS — TrackBuild ADMIN
+   Diseño profesional y consistente
+   ========================================================== */
+
+/* WRAPPER GENERAL */
+.projects-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* HEADER PRINCIPAL */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projects-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* --------------------------------------------
+   FILTROS
+--------------------------------------------- */
+.progress-filters {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+.filter-select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  font-size: 14px;
+}
+
+/* --------------------------------------------
+   TABLA
+--------------------------------------------- */
+
+.sortable-header {
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+}
+
+.sortable-header:hover {
+  color: var(--primary);
+}
+
+/* CELDA DE PORCENTAJE CON BARRA */
+.progress-percentage-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-percentage-text {
+  font-weight: 600;
+}
+
+/* MINI-BARRA PROGRESO EN TABLA */
+.progress-bar-mini {
+  width: 120px;
+  height: 10px;
+  background: var(--muted);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s ease-in-out;
+}
+
+/* ESTADOS */
+.progress-status-badge {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.progress-status-badge.pending {
+  background: oklch(0.98 0.04 96);
+  color: oklch(0.75 0.09 80);
+}
+
+.progress-status-badge.approved {
+  background: oklch(0.92 0.1 150);
+  color: oklch(0.55 0.18 145);
+}
+
+.progress-status-badge.observed {
+  background: oklch(0.95 0.12 30);
+  color: oklch(0.55 0.22 30);
+}
+
+/* --------------------------------------------
+   FORMULARIOS (NEW / EDIT)
+--------------------------------------------- */
+
+.progress-hashes {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  background: var(--card);
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.hash-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hash-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+.hash-value {
+  font-family: monospace;
+  font-size: 13px;
+  background: var(--muted);
+  padding: 6px 8px;
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+/* JSON FIELD */
+.form-value-json,
+.diff-content,
+pre.json-block {
+  background: var(--muted);
+  padding: 16px;
+  font-family: monospace;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+/* --------------------------------------------
+   BOTONES
+--------------------------------------------- */
+
+.btn-primary {
+  padding: 10px 18px;
+  background: var(--primary);
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  padding: 10px 18px;
+  background: var(--muted);
+  color: var(--foreground);
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--muted-hover);
+}
+
+/* --------------------------------------------
+   EMPTY STATES & LOADING
+--------------------------------------------- */
+
+.table-empty,
+.table-loading {
+  text-align: center;
+  padding: 32px;
+  font-size: 18px;
+  color: var(--muted-foreground);
+}
+

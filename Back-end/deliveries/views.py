@@ -11,6 +11,7 @@ from .services import (
 
 # 🟢 Auditoría History
 from history.services import log_action
+from users.permissions import IsAdminOrReadOnly
 
 
 # ============================================================
@@ -21,6 +22,7 @@ from history.services import log_action
 class DeliveryListCreateView(generics.ListCreateAPIView):
     queryset = Delivery.objects.all().order_by("-created_at")
     serializer_class = DeliverySerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def create(self, request, *args, **kwargs):
         # Validación
@@ -59,6 +61,7 @@ class DeliveryListCreateView(generics.ListCreateAPIView):
 class DeliveryDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Delivery.objects.all()
     serializer_class = DeliverySerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def update(self, request, *args, **kwargs):
         delivery = self.get_object()

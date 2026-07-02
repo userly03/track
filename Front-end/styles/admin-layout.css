@@ -1,0 +1,156 @@
+/* ============================================
+   ADMIN LAYOUT – TrackBuild Unified Styling (Enhanced)
+   Mejora visual sin romper clases existentes
+============================================ */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+  overflow: hidden;
+  font-family: var(--font-sans, Inter, sans-serif);
+}
+
+/* ======================== */
+/*       SIDEBAR            */
+/* ======================== */
+
+.admin-sidebar {
+  width: 240px;
+  background: var(--sidebar);
+  color: var(--sidebar-foreground);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  /* sombra más suave y profesional */
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-title {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 8px;
+
+  /* brillo sutil */
+  color: var(--sidebar-foreground);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+/* Agrupación de secciones */
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+/* Navegación del sidebar */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-link {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--sidebar-foreground);
+  opacity: 0.82;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  /* Animaciones suaves */
+  transition: background 0.25s ease, opacity 0.25s ease, transform 0.15s ease;
+}
+
+/* Hover profesional */
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.16);
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* Estado activo mejorado */
+.sidebar-link.active {
+  background: rgba(255, 255, 255, 0.22);
+  font-weight: 700;
+  opacity: 1;
+  transform: translateX(3px);
+  border-left: 3px solid var(--primary);
+}
+
+/* ======================== */
+/*       MAIN CONTENT       */
+/* ======================== */
+
+.admin-main {
+  flex: 1;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+
+  /* fondo suave para separar del sidebar */
+  background: var(--background-alt, #f9fafb);
+  color: var(--foreground);
+  overflow-y: auto;
+}
+
+.admin-header {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.admin-content {
+  flex: 1;
+  margin-top: 12px;
+}
+
+/* ======================== */
+/*       BREADCRUMBS        */
+/* ======================== */
+
+.breadcrumbs {
+  font-size: 14px;
+  color: var(--gray-500);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 4px 0;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.crumb-sep {
+  opacity: 0.5;
+  margin: 0 2px;
+}
+
+.crumb-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.crumb-link:hover {
+  color: var(--primary-dark, #4c1d95);
+}
+

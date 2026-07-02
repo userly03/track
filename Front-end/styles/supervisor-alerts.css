@@ -1,0 +1,144 @@
+/* ===============================
+   CONTENEDOR GENERAL
+================================= */
+.alerts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.alerts-header {
+  margin-bottom: 20px;
+}
+
+.alerts-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d6832;
+}
+
+/* ===============================
+   FILTROS
+================================= */
+.alerts-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 26px;
+  background: #f7faf8;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #0d6832;
+}
+
+.filter-select,
+.filter-input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #c9d9ce;
+  background: white;
+}
+
+/* ===============================
+   TABLA DE ALERTAS
+================================= */
+.alerts-table-wrapper {
+  overflow-x: auto;
+}
+
+.alerts-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.alerts-table th {
+  background: #e8f2ec;
+  padding: 12px;
+  text-align: left;
+  font-weight: 700;
+  color: #0d6832;
+}
+
+.alerts-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eef2ef;
+}
+
+/* ===============================
+   BADGES
+================================= */
+.severity-badge,
+.type-badge,
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+}
+
+/* Severidad */
+.severity-badge.critical { background: #c62828; }
+.severity-badge.warning { background: #d19a00; }
+.severity-badge.info { background: #0d6832; }
+
+/* Tipo de alerta */
+.type-badge.purchase { background: #0057b8; }
+.type-badge.delivery { background: #8b39c7; }
+.type-badge.progress { background: #ff8c00; }
+.type-badge.document { background: #0d6832; }
+.type-badge.system { background: gray; }
+
+/* Estado */
+.status-badge.active { background: #c62828; }
+.status-badge.resolved { background: #0d6832; }
+
+/* ===============================
+   BOTONES
+================================= */
+.btn-view {
+  background: #0d6832;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-view:hover {
+  background: #0b4d26;
+}
+
+/* ===============================
+   ROWS
+================================= */
+.empty-row {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 900px) {
+  .alerts-filters {
+    flex-direction: column;
+  }
+}

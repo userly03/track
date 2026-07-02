@@ -1,0 +1,102 @@
+/* ============================================================
+   PROJECT DETAIL PAGE – TrackBuild Styling
+   Vista detallada de un proyecto (Admin)
+============================================================ */
+
+.project-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.project-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.project-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.info-card {
+  background: white;
+  padding: 26px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.info-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1f2937;
+}
+
+/* GRID */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.info-value.hash {
+  font-family: monospace;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* PROGRESS BAR */
+.progress-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4f46e5;
+  transition: width 0.3s ease;
+}
+
+.loading-text,
+.error-text {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #555;
+}

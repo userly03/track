@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+npm-debug.log
+Dockerfile
+docker-compose.yml
+pnpm-lock.yaml
+yarn.lock
+dist
+.env.local
+.env
+.eslintcache

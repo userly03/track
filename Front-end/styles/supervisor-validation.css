@@ -1,0 +1,171 @@
+/* PAGE LAYOUT */
+.validation-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* TITLE */
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 28px;
+  color: #0d6832;
+  font-weight: 800;
+}
+
+/* FILTERS */
+.filters-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-item label {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #0d6832;
+}
+
+.filter-item select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #cfd8d2;
+}
+
+/* GRID */
+.validation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 24px;
+}
+
+/* CARD */
+.validation-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* HEADER BADGES */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.type-badge,
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+}
+
+.type-purchase { background: #0057b8; }
+.type-delivery { background: #8b39c7; }
+.type-progress { background: #ff8c00; }
+.type-document { background: #0d6832; }
+
+.status-pending { background: #d19a00; }
+.status-under_review { background: #0077b6; }
+.status-approved_partial { background: #639b00; }
+.status-approved { background: #0d6832; }
+.status-rejected { background: #c62828; }
+.status-auto_closed { background: #444; }
+
+/* BODY */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.info-row label {
+  font-weight: 600;
+  color: #0d6832;
+}
+
+/* PROGRESS BAR */
+.progress-section {
+  margin-top: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e7eee9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #0d6832;
+}
+
+.progress-text {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.rejection-warning {
+  margin-top: 6px;
+  color: #c62828;
+  font-weight: 600;
+}
+
+/* DATE */
+.date-field {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* FOOTER */
+.card-footer {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-review {
+  background: #0d6832;
+  border: none;
+  padding: 8px 14px;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-review:hover {
+  background: #0b4d25;
+}
+
+/* EMPTY / LOADING */
+.loading-box,
+.error-box,
+.empty-box {
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
+}

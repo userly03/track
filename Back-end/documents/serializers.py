@@ -272,6 +272,7 @@ class DocumentHistorySerializer(serializers.ModelSerializer):
 class DocumentVersionEntrySerializer(serializers.Serializer):
     version = serializers.IntegerField()
     hash = serializers.CharField()
+    created_at = serializers.DateTimeField()
 
 
 class DocumentVersionsSerializer(serializers.Serializer):

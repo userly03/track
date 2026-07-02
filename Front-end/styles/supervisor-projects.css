@@ -1,0 +1,169 @@
+/* ==========================================
+   SUPERVISOR – PROJECTS LIST UI (IMPROVED)
+========================================== */
+
+/* PAGE LAYOUT */
+.projects-container {
+  padding: 32px 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.projects-header {
+  margin-bottom: 28px;
+}
+
+.projects-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0d6832;
+  margin-bottom: 6px;
+}
+
+.projects-subtitle {
+  font-size: 15px;
+  color: #475569;
+}
+
+/* TABLE STYLING */
+.data-table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+.data-table th {
+  background: #e8f6ed;
+  color: #0d6832;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid #d3e8d8;
+}
+
+.data-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.data-table tbody tr:hover {
+  background: #f7faf9;
+}
+
+/* Add table spacing */
+.table-container {
+  margin-top: 10px;
+}
+
+/* PROGRESS BAR */
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-label {
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 48px;
+  text-align: right;
+}
+
+.progress-bar-container {
+  width: 130px;
+  height: 10px;
+  border-radius: 6px;
+  background: #d4d4d8;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #0d6832;
+  border-radius: 6px;
+  transition: width 0.25s ease-in-out;
+}
+
+/* STATUS BADGES */
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+  display: inline-block;
+  text-align: center;
+}
+
+.status-badge.active {
+  background: #0d6832;
+}
+
+.status-badge.completed {
+  background: #1e40af;
+}
+
+.status-badge.paused {
+  background: #d97706;
+}
+
+.status-badge.cancelled {
+  background: #b91c1c;
+}
+
+/* ACTION BUTTONS */
+.projects-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.btn-view,
+.btn-kpi {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+/* VIEW BUTTON */
+.btn-view {
+  background: #0d6832;
+  color: white;
+  border: none;
+}
+
+.btn-view:hover {
+  background: #0b552a;
+}
+
+/* KPI BUTTON */
+.btn-kpi {
+  background: white;
+  border: 1px solid #0d6832;
+  color: #0d6832;
+}
+
+.btn-kpi:hover {
+  background: #e6f4ec;
+}
+
+/* EMPTY STATE */
+.table-empty {
+  text-align: center;
+  padding: 24px;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+/* TABLE WRAPPER for spacing */
+.table-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}

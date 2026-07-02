@@ -1,0 +1,283 @@
+/* ============================================
+   PURCHASES – TrackBuild Admin (Tema Profesional)
+   Compatible con Admin Layout + variables globales
+============================================ */
+
+/* WRAPPER GENERAL */
+.purchases-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ============================================
+   HEADER
+============================================ */
+.purchases-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.purchases-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.purchases-subtitle {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-top: 4px;
+}
+
+/* ============================================
+   FILTERS
+============================================ */
+.purchases-filters {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.search-input,
+.filter-input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 14px;
+}
+
+.filter-input:focus {
+  border-color: var(--primary);
+}
+
+.filter-select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 14px;
+}
+
+/* ============================================
+   TABLE
+============================================ */
+.table-container {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* TOTAL */
+.purchase-total {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* ============================================
+   ESTADOS / BADGES
+============================================ */
+.purchase-status-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.purchase-status-badge.pending {
+  background: oklch(0.98 0.04 96);
+  color: oklch(0.75 0.09 80);
+}
+
+.purchase-status-badge.approved {
+  background: oklch(0.92 0.1 150);
+  color: oklch(0.55 0.18 145);
+}
+
+.purchase-status-badge.observed {
+  background: oklch(0.95 0.12 30);
+  color: oklch(0.55 0.22 30);
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.btn-secondary.small {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: oklch(0.96 0 0);
+}
+
+/* =====================================================================
+   NUEVO: BLOQUE PREMIUM DE INFORMACIÓN DEL SISTEMA (system-info-card)
+===================================================================== */
+
+.system-info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.system-info-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 16px;
+}
+
+.system-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.system-info-item {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-label {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.info-hash {
+  font-family: monospace;
+  font-size: 11px;
+  line-height: 1.3;
+  word-break: break-all;
+  opacity: 0.85;
+  color: var(--foreground);
+}
+
+/* ============================================
+   LOADING & ERROR STATES
+============================================ */
+.page-loading,
+.page-error {
+  padding: 40px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.page-error {
+  color: var(--destructive);
+}
+/* ============================================
+   SYSTEM INFO (2 COLUMNAS LIMPIAS)
+============================================ */
+
+.system-info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  margin-top: 20px;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Título */
+.system-info-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--foreground);
+}
+
+/* GRID EN 2 COLUMNAS */
+.system-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Cada tarjeta interna */
+.system-info-box {
+  background: var(--background);
+  border: 1px solid var(--border);
+  padding: 18px;
+  border-radius: 12px;
+}
+
+/* Etiquetas */
+.info-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--muted-foreground);
+}
+
+/* Valores */
+.info-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.info-hash {
+  font-family: monospace;
+  font-size: 12px;
+  word-break: break-all;
+  opacity: 0.85;
+}
+
+/* Responsive → en móviles vuelve a 1 columna */
+@media (max-width: 900px) {
+  .system-info-grid {
+    grid-template-columns: 1fr;
+  }
+}

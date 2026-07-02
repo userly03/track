@@ -1,0 +1,183 @@
+/* ==========================================================================
+   SUPERVISOR – COMPRAS UI/UX PROFESIONAL
+   ========================================================================== */
+
+/* CONTENEDOR PRINCIPAL */
+.purchases-container {
+  width: 100%;
+  padding: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* HEADER */
+.purchases-header {
+  margin-bottom: 24px;
+}
+
+.purchases-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d6832;
+  margin-bottom: 4px;
+}
+
+.purchases-subtitle {
+  color: #475569;
+  font-size: 15px;
+}
+
+/* FILTROS */
+.purchases-filters {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: border 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #0d6832;
+  box-shadow: 0 0 0 2px rgba(13, 104, 50, 0.15);
+}
+
+.filter-select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #0d6832;
+}
+
+/* TABLA */
+.table-container {
+  width: 100%;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  padding: 12px;
+}
+
+/* ESTILO TABLA GENERAL */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.data-table thead {
+  background: #f1f5f4;
+}
+
+.data-table thead th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 700;
+  color: #0d6832;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.data-table tbody tr {
+  transition: background 0.15s;
+}
+
+.data-table tbody tr:hover {
+  background: #f8faf9;
+}
+
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* COLUMNAS ESPECIALES */
+.col-strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.col-total {
+  font-weight: 700;
+  color: #0d6832;
+}
+
+/* BADGES DE ESTADO */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+}
+
+.status-badge.pending {
+  background: #d97706;
+}
+
+.status-badge.approved {
+  background: #059669;
+}
+
+.status-badge.observed {
+  background: #dc2626;
+}
+
+/* BOTÓN VER */
+.btn-view {
+  padding: 7px 12px;
+  background: #0d6832;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-view:hover {
+  background: #0b572a;
+}
+
+/* ESTADOS */
+.table-loading,
+.table-error,
+.table-empty {
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #475569;
+}
+
+.table-error {
+  color: #dc2626;
+}
+
+/* ANIMACION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

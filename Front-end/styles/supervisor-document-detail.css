@@ -1,0 +1,212 @@
+.doc-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d6832;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-back,
+.btn-download {
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-back {
+  background: #e8f2ec;
+  border: 1px solid #c8e2d2;
+  color: #0d6832;
+}
+
+.btn-back:hover {
+  background: #d8ebdf;
+}
+
+.btn-download {
+  background: #0d6832;
+  color: white;
+  border: 1px solid #0a4d25;
+}
+
+.btn-download:hover {
+  background: #0b5428;
+}
+
+/* ==============================
+   CARDS
+============================== */
+
+.card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 26px;
+}
+
+.card-title {
+  font-weight: 700;
+  color: #0d6832;
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+
+/* ==============================
+   FILE SECTION
+============================== */
+
+.file-link {
+  color: #0d6832;
+  font-weight: 700;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
+.file-url {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #444;
+}
+
+/* ==============================
+   DUPLICATE
+============================== */
+
+.duplicate-warning {
+  background: #fde4e4;
+  border-left: 4px solid #c62828;
+  padding: 12px;
+  margin-bottom: 18px;
+  font-weight: 600;
+  color: #a32020;
+  border-radius: 6px;
+}
+
+/* ==============================
+   HASHES
+============================== */
+
+.hash-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.hash-item {
+  background: #f4f7f5;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+.hash-item label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0d6832;
+}
+
+.hash-item span {
+  display: block;
+  margin-top: 4px;
+  word-break: break-all;
+}
+
+/* ==============================
+   DETAILS
+============================== */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.detail-item label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d6832;
+}
+
+.detail-item p {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #333;
+}
+
+.detail-item.full {
+  grid-column: 1 / -1;
+}
+
+/* ==============================
+   JSON
+============================== */
+
+.json-box {
+  background: #f0f4f2;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ==============================
+   STATUS BADGES
+============================== */
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: white;
+}
+
+.status-approved {
+  background: #0d6832;
+}
+
+.status-pending {
+  background: #d19a00;
+}
+
+.status-rejected {
+  background: #c62828;
+}
+
+/* ==============================
+   GENERAL FEEDBACK
+============================== */
+
+.loading-box,
+.error-box {
+  text-align: center;
+  padding: 22px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.error-box {
+  color: #c62828;
+}

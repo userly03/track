@@ -77,14 +77,18 @@ class BaseValidationActionView(APIView):
         serializer.is_valid(raise_exception=True)
 
         # Ejecutar acción W-de-N
-        result = add_validation_action(
+        add_validation_action(
             item_id=item.id,
             user=user,
             decision=self.decision_type,
             comment=serializer.validated_data.get("comment", ""),
         )
 
-        return Response(result, status=status.HTTP_200_OK)
+        item.refresh_from_db()
+        return Response(
+            ValidationItemSerializer(item).data,
+            status=status.HTTP_200_OK,
+        )
 
 
 # =============================================================

@@ -1,0 +1,154 @@
+/* ===============================
+   SUPERVISOR DELIVERY DETAIL — BASIC STYLES
+   (Archivo mínimo para evitar errores de build)
+   =============================== */
+
+.delivery-detail-page {
+  padding: 24px;
+}
+
+.loading-box,
+.error-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+}
+
+/* ---------------------------------------------- */
+/* HEADER */
+/* ---------------------------------------------- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0a5c2f;
+}
+
+.btn-back {
+  padding: 10px 18px;
+  background: #0b703b;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn-back:hover {
+  background: #095c31;
+}
+
+/* ---------------------------------------------- */
+/* CARD BASE */
+/* ---------------------------------------------- */
+.card {
+  background: white;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ---------------------------------------------- */
+/* HASHES SECTION */
+/* ---------------------------------------------- */
+.hash-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.hash-block {
+  background: #f3f4f6;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.hash-label {
+  font-size: 13px;
+  color: #666;
+  display: block;
+}
+
+.hash-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  word-break: break-all;
+}
+
+/* ---------------------------------------------- */
+/* MAIN DETAIL GRID */
+/* ---------------------------------------------- */
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.detail-item label {
+  font-size: 14px;
+  color: #666;
+}
+
+.detail-item p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.detail-item.full {
+  grid-column: 1 / -1;
+}
+
+/* JSON BOX */
+.json-box {
+  background: #1e1e1e;
+  color: #dcdcdc;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  overflow: auto;
+  max-height: 200px;
+}
+
+/* ---------------------------------------------- */
+/* STATUS BADGE */
+/* ---------------------------------------------- */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+}
+
+.status-badge.status-pending {
+  background: #d97706;
+}
+
+.status-badge.status-approved {
+  background: #059669;
+}
+
+.status-badge.status-rejected {
+  background: #dc2626;
+}

@@ -1,0 +1,117 @@
+/* ===============================
+   GLOBAL IMPORTS – Tailwind + Animations
+================================ */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ===============================
+   TRACKBUILD DESIGN SYSTEM – LIGHT MODE (ADMIN)
+================================ */
+:root {
+  /* Colores del Admin (Azul Corporativo) */
+  --primary: #2563eb;
+  --primary-light: #dbeafe;
+
+  --success: #059669;
+  --success-light: #d1fae5;
+
+  --warning: #d97706;
+  --warning-light: #fef3c7;
+
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+
+  --info: #1e40af;
+  --info-light: #dbeafe;
+
+  /* Layout general */
+  --background: #f5f7fa;
+  --foreground: #1a1a1a;
+
+  /* === SIDEBAR ADMIN: AZUL === */
+  --sidebar: #0a4d8c;
+  --sidebar-foreground: #ffffff;
+
+  /* Neutrales */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-300: #e5e7eb;
+  --gray-500: #6b7280;
+
+  --border: var(--gray-300);
+  --input: var(--gray-300);
+  --ring: var(--primary);
+
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+
+  --radius: 0.625rem;
+}
+
+/* ===============================
+   DARK MODE
+================================ */
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+
+  --primary: #3b82f6;
+
+  --sidebar: #1e293b;
+  --sidebar-foreground: #e2e8f0;
+
+  --gray-100: #334155;
+  --gray-300: #475569;
+  --gray-500: #94a3b8;
+
+  --border: #334155;
+  --input: #334155;
+  --ring: #3b82f6;
+}
+
+/* ===============================
+   TAILWIND THEME MAPPINGS
+================================ */
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: #ffffff;
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-md: var(--radius);
+}
+
+/* ===============================
+   BASE STYLES
+================================ */
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans), sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+  }
+}

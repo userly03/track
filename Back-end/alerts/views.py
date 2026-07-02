@@ -113,13 +113,6 @@ class AlertResolveView(generics.UpdateAPIView):
         )
 
         return Response(
-            {
-                "detail": (
-                    "Alerta resuelta exitosamente."
-                    if updated_alert.status == "resolved"
-                    else "Alerta actualizada exitosamente."
-                ),
-                "alert": AlertSerializer(updated_alert).data,
-            },
+            AlertSerializer(updated_alert).data,
             status=status.HTTP_200_OK,
         )

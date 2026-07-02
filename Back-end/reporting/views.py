@@ -1,5 +1,9 @@
 from django.http import HttpResponse
-from django.views import View
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
+from users.permissions import IsAdminOrSupervisor
 
 from .services import (
     create_project_report_pdf,
@@ -11,7 +15,12 @@ from .services import (
 # ==========================================================
 # VIEW: REPORTE COMPLETO DE PROYECTO (PDF)
 # ==========================================================
-class ProjectReportPDFView(View):
+class ProtectedReportAPIView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated, IsAdminOrSupervisor]
+
+
+class ProjectReportPDFView(ProtectedReportAPIView):
     def get(self, request, project_id):
         pdf_bytes = create_project_report_pdf(project_id, user=request.user)
 
@@ -25,7 +34,7 @@ class ProjectReportPDFView(View):
 # ==========================================================
 # VIEW: REPORTE DE ALERTAS (PDF)
 # ==========================================================
-class AlertReportPDFView(View):
+class AlertReportPDFView(ProtectedReportAPIView):
     def get(self, request, project_id):
         pdf_bytes = create_alert_summary_pdf(project_id, user=request.user)
 
@@ -39,7 +48,7 @@ class AlertReportPDFView(View):
 # ==========================================================
 # VIEW: REPORTE FINANCIERO (PDF)
 # ==========================================================
-class FinancialReportPDFView(View):
+class FinancialReportPDFView(ProtectedReportAPIView):
     def get(self, request, project_id):
         pdf_bytes = create_financial_report_pdf(project_id, user=request.user)
 

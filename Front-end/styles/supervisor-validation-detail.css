@@ -1,0 +1,375 @@
+/* ===============================
+   CONTENEDOR PRINCIPAL
+=============================== */
+.validation-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* ===============================
+   HEADER
+=============================== */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.page-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0d6832;
+  letter-spacing: -0.3px;
+}
+
+.btn-back {
+  background: #e8f2ec;
+  color: #0d6832;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid #c8e2d2;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn-back:hover {
+  background: #d7eadc;
+  transform: translateX(-2px);
+}
+
+/* ===============================
+   CARD PRINCIPAL
+=============================== */
+.card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border: 1px solid #eef3ef;
+}
+
+/* ===============================
+   BADGES
+=============================== */
+.type-badge,
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.type-purchase { background: #0057b8; }
+.type-delivery { background: #8b39c7; }
+.type-progress { background: #ff8c00; }
+.type-document { background: #0d6832; }
+
+.status-pending { background: #d19a00; }
+.status-approved { background: #0d6832; }
+.status-under_review { background: #0077b6; }
+.status-rejected { background: #c62828; }
+.status-approved_partial { background: #66a80f; }
+.status-auto_closed { background: #999; }
+
+.detail-header {
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+/* ===============================
+   SECCIONES
+=============================== */
+.section {
+  margin-top: 32px;
+}
+
+.section-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: #0d6832;
+  margin-bottom: 14px;
+}
+
+/* ===============================
+   GRID INFORMACIÓN
+=============================== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.info-item label {
+  font-weight: 700;
+  color: #0d6832;
+  letter-spacing: -0.2px;
+}
+
+.info-item p {
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+/* ===============================
+   PROGRESO W-OF-N
+=============================== */
+.progress-large {
+  width: 100%;
+  height: 12px;
+  border-radius: 10px;
+  background: #e6eee8;
+  overflow: hidden;
+}
+
+.progress-fill-large {
+  height: 100%;
+  background: #0d6832;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reject-alert {
+  margin-top: 8px;
+  color: #c62828;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ===============================
+   COMMENT BOX
+=============================== */
+.comment-box {
+  background: #f4f7f5;
+  padding: 16px;
+  border-radius: 12px;
+  border-left: 4px solid #0d6832;
+  font-size: 15px;
+}
+
+/* ===============================
+   METADATA
+=============================== */
+.metadata-box {
+  background: #f0f4f2;
+  padding: 14px;
+  border-radius: 12px;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ===============================
+   HASHES
+=============================== */
+.hash-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hash-item {
+  background: #f7fbf8;
+  padding: 14px 16px;
+  border-radius: 12px;
+  min-width: 240px;
+  border: 1px solid #ebf2ed;
+}
+
+.hash-item label {
+  font-size: 13px;
+  color: #0d6832;
+  font-weight: 700;
+}
+
+.hash-item span {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+/* ===============================
+   BOTONES DE ACCIÓN
+=============================== */
+.actions-row {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-approve,
+.btn-reject,
+.btn-secondary {
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.btn-approve {
+  background: #0d6832;
+  color: white;
+}
+
+.btn-approve:hover {
+  background: #0b4d26;
+}
+
+.btn-reject {
+  background: #c62828;
+  color: white;
+}
+
+.btn-reject:hover {
+  background: #a31212;
+}
+
+.btn-secondary {
+  background: #e7eeea;
+  border: 1px solid #cfdcd5;
+  color: #0d6832;
+}
+
+.btn-secondary:hover {
+  background: #dbe7e1;
+}
+
+/* TEXTAREA */
+.reject-form textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #d2d2d2;
+  outline: none;
+  transition: 0.15s ease;
+}
+
+.reject-form textarea.invalid-textarea {
+  border-color: #c62828 !important;
+  background: #fff5f5;
+}
+
+.reject-form textarea:focus {
+  border-color: #0d6832;
+  box-shadow: 0 0 0 2px #c2e5d0;
+}
+
+/* ===============================
+   TIMELINE (HISTORIAL)
+=============================== */
+.timeline {
+  margin-top: 20px;
+  border-left: 3px solid #0d6832;
+  padding-left: 22px;
+}
+
+.timeline-item {
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.timeline-marker {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  left: -9px;
+  top: 3px;
+  border: 2px solid white;
+  box-shadow: 0 0 4px rgba(0,0,0,0.25);
+}
+
+.timeline-marker.approve { background: #0d6832; }
+.timeline-marker.reject { background: #c62828; }
+
+.timeline-content {
+  background: #f7faf8;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #e8f1eb;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.validator-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.validator-role {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+.decision-badge {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+}
+
+.decision-badge.approve { background: #0d6832; }
+.decision-badge.reject { background: #c62828; }
+
+.timeline-comment {
+  margin-top: 8px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.timeline-footer {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.hash-small {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+/* ===============================
+   TOAST
+=============================== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 16px 22px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  animation: fadeIn 0.3s ease-out;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+
+.toast.success { background: #0d6832; }
+.toast.error { background: #c62828; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

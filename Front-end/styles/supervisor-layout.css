@@ -1,0 +1,96 @@
+/* ==============================
+      SUPERVISOR LAYOUT
+   ============================== */
+
+.sv-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f1f5f4; /* gris verdoso */
+}
+
+/* SIDEBAR */
+.sv-sidebar {
+  width: 230px;
+  background: #0d6832; /* verde principal */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+}
+
+.sv-sidebar-header {
+  margin-bottom: 24px;
+}
+
+.sv-logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* MENU */
+.sv-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.sv-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.sv-menu-item:hover {
+  background: #0b572a;
+}
+
+.sv-menu-item.active {
+  background: #094722;
+  font-weight: 600;
+}
+
+.sv-menu-icon {
+  opacity: 0.9;
+}
+
+/* LOGOUT BUTTON */
+.sv-logout-btn {
+  margin-top: 20px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #e5f6ea;
+  color: #0d6832;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sv-logout-btn:hover {
+  background: #d7f0dd;
+}
+
+/* MAIN AREA */
+.sv-main {
+  flex-grow: 1;
+  padding: 24px;
+}
+
+.sv-main-inner {
+  width: 100%;
+  max-width: 1600px; /* puedes subir más si quieres */
+  margin: 0 auto;
+  padding: 0 16px;
+}

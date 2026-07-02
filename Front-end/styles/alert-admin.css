@@ -1,0 +1,500 @@
+/* ============================================================
+   ALERTS – TrackBuild Admin PRO UI — 2025
+   Archivo Unificado (Listado + Detalle)
+   100% Limpio / Sin duplicados / Sin conflictos
+============================================================ */
+
+/* ============================================
+   WRAPPERS
+============================================ */
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.alert-detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* ============================================
+   TITLES
+============================================ */
+
+.alerts-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+/* ============================================
+   FILTER BAR (LIST PAGE)
+============================================ */
+
+.alerts-filters {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 18px 20px;
+  border-radius: 14px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+
+  margin-top: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+.filter-select,
+.filter-input {
+  padding: 10px 14px;
+  background: var(--background);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.filter-select:focus,
+.filter-input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px oklch(0.78 0.22 260 / 0.4);
+}
+
+/* ============================================
+   BADGES (SEVERIDAD / TIPO / ESTADO)
+============================================ */
+
+.alert-severity-badge,
+.alert-type-badge,
+.alert-status-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* SEVERIDAD */
+.alert-severity-badge.critical {
+  background: oklch(0.92 0.18 30);
+  color: oklch(0.35 0.22 30);
+}
+
+.alert-severity-badge.warning {
+  background: oklch(0.96 0.11 85);
+  color: oklch(0.48 0.18 85);
+}
+
+.alert-severity-badge.info {
+  background: oklch(0.94 0.07 260);
+  color: oklch(0.50 0.15 260);
+}
+
+/* TIPO */
+.alert-type-badge {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.alert-type-badge.purchase  { background: oklch(0.92 0.08 140); }
+.alert-type-badge.delivery  { background: oklch(0.93 0.09 220); }
+.alert-type-badge.progress  { background: oklch(0.93 0.10 300); }
+.alert-type-badge.document  { background: oklch(0.92 0.08 40); }
+.alert-type-badge.system    { background: oklch(0.92 0.07 260); }
+
+/* ESTADO */
+.alert-status-badge.active {
+  background: oklch(0.92 0.12 30);
+  color: oklch(0.47 0.20 30);
+}
+
+.alert-status-badge.resolved {
+  background: oklch(0.90 0.15 150);
+  color: oklch(0.44 0.18 150);
+}
+
+/* ============================================
+   TABLE – LIST PAGE
+============================================ */
+
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.data-table thead th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+.data-table tbody tr {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.data-table tbody td {
+  padding: 14px;
+  font-size: 14px;
+}
+
+.data-table tbody tr:hover {
+  background: oklch(0.98 0.02 260);
+}
+
+.alert-message-cell {
+  max-width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ============================================
+   BUTTONS UNIFICADOS
+============================================ */
+
+.btn-outline-primary {
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  background: transparent;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-outline-danger {
+  border: 1.5px solid #b91c1c;
+  color: #b91c1c;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-outline-danger:hover {
+  background: #b91c1c;
+  color: white;
+}
+
+.btn-danger {
+  background: #b91c1c;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-danger:hover {
+  background: #9b1616;
+}
+
+/* ============================================
+   ALERT DETAIL PAGE
+============================================ */
+
+.alert-detail-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.alert-detail-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  padding: 26px;
+  border-radius: 16px;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.alert-detail-badges {
+  display: flex;
+  gap: 10px;
+}
+
+/* GRID DE INFO */
+.alert-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.alert-info-grid label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+}
+
+.alert-info-grid p {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* MENSAJE */
+.alert-message-box {
+  background: oklch(0.97 0.03 260);
+  padding: 18px;
+  border-radius: 12px;
+}
+
+.alert-message-box label {
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: block;
+  font-size: 15px;
+}
+
+/* METADATA */
+.alert-metadata {
+  background: var(--background);
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  white-space: pre-wrap;
+  color: var(--foreground);
+}
+
+/* ACCIONES */
+.alert-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   TOAST
+============================================ */
+
+.alert-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 14px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 12px;
+  color: white;
+  animation: fadeInOut 3s ease forwards;
+}
+
+.alert-toast.success { background: #059669; }
+.alert-toast.error   { background: #dc2626; }
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(6px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(6px); }
+}
+
+/* ============================================
+   STATES
+============================================ */
+
+.page-loading,
+.page-error {
+  padding: 30px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.page-error {
+  color: var(--destructive);
+}
+/* ================================================
+   CARDS — ESTILO PROFESIONAL
+================================================ */
+
+.alert-detail-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  margin-top: 22px;
+  box-shadow: 0 2px 8px oklch(0.85 0.02 260 / 0.15);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.alert-detail-card:hover {
+  box-shadow: 0 4px 14px oklch(0.85 0.03 260 / 0.25);
+  transform: translateY(-2px);
+}
+
+/* HEADER TITLES */
+.alerts-title {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 18px;
+  color: var(--foreground);
+}
+
+/* LABELS */
+.alert-detail-card label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/* TEXT VALUE */
+.alert-detail-card p {
+  font-size: 15px;
+  margin-top: 4px;
+  color: var(--foreground);
+}
+
+/* GRID INFO */
+.alert-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 12px;
+}
+
+/* MENSAJE BOX */
+.alert-message-box {
+  background: oklch(0.97 0.03 260);
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 10px;
+  border-left: 4px solid var(--primary);
+}
+
+/* ================================================
+   BOTÓN VOLVER – ESTILO PRO
+================================================ */
+
+.btn-outline-danger {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 2px solid #b91c1c;
+  background: transparent;
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-outline-danger:hover {
+  background: #b91c1c;
+  color: white;
+  box-shadow: 0 3px 8px rgba(185, 28, 28, 0.4);
+}
+
+/* RESOLVER ALERTA BUTTON */
+.btn-danger {
+  padding: 10px 18px;
+  background: #b91c1c;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-danger:hover {
+  background: #991b1b;
+  box-shadow: 0 4px 10px rgba(185, 28, 28, 0.35);
+}
+
+/* CARD TITLE */
+.alert-detail-card h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: var(--primary);
+}
+
+/* ================================================
+   RESUMEN AUTOMÁTICO DE LA ALERTA
+================================================ */
+
+.alert-summary-box {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  margin-top: 18px;
+}
+
+.alert-summary-box p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.alert-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.alert-summary-item label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  font-weight: 700;
+}
+
+.alert-summary-item p {
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+/* ================================================
+   HOVER PARA CARDS PEQUEÑAS (BADGES)
+================================================ */
+
+.alert-detail-badges span {
+  padding: 6px 14px;
+  font-weight: 800;
+  border-radius: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.alert-detail-badges span:hover {
+  opacity: 0.9;
+}
+

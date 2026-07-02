@@ -1,0 +1,123 @@
+/* =============================
+   CONTENEDOR GENERAL
+============================= */
+
+.deliveries-page {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =============================
+   HEADER
+============================= */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d6832;
+}
+
+/* =============================
+   CARD-TABLE
+============================= */
+
+.table-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.07);
+  overflow-x: auto;
+}
+
+.deliveries-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.deliveries-table th {
+  text-align: left;
+  padding: 12px;
+  background: #f4f7f5;
+  color: #0d6832;
+  font-weight: 700;
+  border-bottom: 2px solid #e6eee9;
+}
+
+.deliveries-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.deliveries-table tr:hover {
+  background: #f8faf9;
+}
+
+/* =============================
+   BADGES DE ESTADO
+============================= */
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+}
+
+.status-pending {
+  background: #d19a00;
+}
+
+.status-completed {
+  background: #0d6832;
+}
+
+.status-rejected {
+  background: #c62828;
+}
+
+/* =============================
+   BOTONES
+============================= */
+
+.btn-view {
+  background: #0d6832;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-view:hover {
+  background: #0a4d25;
+}
+
+/* =============================
+   ESTADOS VACÍO / ERROR / LOADING
+============================= */
+
+.empty-message,
+.loading-box,
+.error-box {
+  text-align: center;
+  padding: 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #777;
+}
+
+.error-box {
+  color: #c62828;
+}

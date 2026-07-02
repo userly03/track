@@ -12,6 +12,7 @@ from .selectors import (
 
 from .services import evaluate_purchase_for_alerts
 from history.services import log_action
+from users.permissions import IsAdminOrReadOnly
 
 
 # ============================================================
@@ -33,6 +34,7 @@ class PurchaseListCreateView(generics.ListCreateAPIView):
 
     queryset = Purchase.objects.all().order_by("-created_at")
     serializer_class = PurchaseSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     @transaction.atomic
     def perform_create(self, serializer):
@@ -92,6 +94,7 @@ class PurchaseDetailView(generics.RetrieveUpdateAPIView):
 
     queryset = Purchase.objects.all()
     serializer_class = PurchaseSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_object(self):
         purchase = get_purchase_by_id(self.kwargs["pk"])

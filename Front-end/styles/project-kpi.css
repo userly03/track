@@ -1,0 +1,273 @@
+/* ============================================================
+   GENERAL KPI PAGE LAYOUT
+============================================================ */
+
+.kpi-wrapper {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kpi-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #1d1d1f;
+}
+
+.kpi-subtitle {
+  font-size: 15px;
+  color: #6d6d6d;
+  margin-top: 4px;
+}
+
+/* Loading / Error */
+.kpi-loading,
+.kpi-error {
+  padding: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+
+/* ============================================================
+   KPI GRID (PRINCIPAL)
+============================================================ */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.kpi-card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kpi-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+
+.kpi-card.warning .kpi-value {
+  color: #d9831f;
+}
+
+
+/* ============================================================
+   HEALTH SCORE
+============================================================ */
+
+.health-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.health-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: 700;
+  color: white;
+}
+
+.health-circle.excellent {
+  background: #1abc9c;
+}
+
+.health-circle.good {
+  background: #4ba3ff;
+}
+
+.health-circle.warning {
+  background: #f2b134;
+}
+
+.health-circle.critical {
+  background: #e74c3c;
+}
+
+.health-label {
+  font-size: 15px;
+  color: #555;
+}
+
+
+/* ============================================================
+   METRIC GRID
+============================================================ */
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.metric-item {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-label {
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+
+/* ============================================================
+   ALERT BADGES (critical, warning, info)
+============================================================ */
+
+.alerts-grid {
+  display: flex;
+  gap: 30px;
+  margin-top: 12px;
+}
+
+.alert-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.alert-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.alert-circle.critical {
+  background: #e63946;
+}
+
+.alert-circle.warning {
+  background: #f4a261;
+}
+
+.alert-circle.info {
+  background: #1d9bf0;
+}
+
+
+/* ============================================================
+   DEVIATIONS
+============================================================ */
+
+.deviation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.deviation-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.deviation-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.deviation-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+  height: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.deviation-fill {
+  height: 100%;
+  border-radius: 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease;
+}
+
+.deviation-text {
+  padding: 0 6px;
+}
+
+
+/* ============================================================
+   SECTION TITLES
+============================================================ */
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #222;
+}
+
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+
+.btn-secondary {
+  background: #f5f5f7;
+  border: 1px solid #d0d0d0;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background: #e8e8e9;
+}

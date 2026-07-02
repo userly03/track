@@ -1,0 +1,346 @@
+/* ============================================
+   HISTORY – TrackBuild Admin (PRO UI)
+   Un solo archivo para TODO el módulo History
+============================================ */
+
+/* WRAPPER GENERAL */
+.history-wrapper,
+.history-detail-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* TITULOS */
+.history-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.history-subtitle {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-top: 2px;
+}
+
+/* ============================================
+   TIMELINE PRINCIPAL
+============================================ */
+
+.history-timeline {
+  margin-top: 24px;
+  position: relative;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.history-item {
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+
+.history-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.history-content {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 10px;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.history-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* INFO */
+.history-info {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.history-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.history-date {
+  font-weight: 600;
+}
+
+.history-hash {
+  font-family: monospace;
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+/* LINK – VER DETALLE */
+.btn-link {
+  font-size: 13px;
+  color: var(--primary);
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   BADGES (action_type)
+============================================ */
+
+.history-action {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* CREATED */
+.history-action.created {
+  background: oklch(0.92 0.10 140);
+  color: oklch(0.45 0.15 140);
+}
+
+/* UPDATED */
+.history-action.updated {
+  background: oklch(0.92 0.10 260);
+  color: oklch(0.45 0.16 260);
+}
+
+/* DELETED */
+.history-action.deleted {
+  background: oklch(0.92 0.15 30);
+  color: oklch(0.45 0.20 30);
+}
+
+/* APPROVED */
+.history-action.approved {
+  background: oklch(0.90 0.12 150);
+  color: oklch(0.40 0.18 150);
+}
+
+/* REJECTED */
+.history-action.rejected {
+  background: oklch(0.92 0.14 30);
+  color: oklch(0.50 0.20 30);
+}
+
+/* ALERT */
+.history-action.alert {
+  background: oklch(0.93 0.20 27);
+  color: oklch(0.47 0.24 27);
+}
+
+/* DEFAULT */
+.history-action.default {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+/* ============================================
+   FILTROS
+============================================ */
+
+.history-filters {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  font-size: 14px;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: var(--primary);
+}
+
+/* ============================================
+   DETAIL VIEW
+============================================ */
+
+.history-detail-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.detail-section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+.detail-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ============================================
+   HASHES & SNAPSHOTS
+============================================ */
+
+.delivery-hashes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hash-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-family: monospace;
+  background: var(--muted);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.hash-label {
+  font-weight: 700;
+}
+
+.diff-container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.diff-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.diff-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.diff-content {
+  background: var(--muted);
+  padding: 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+.diff-content.highlight {
+  background: oklch(0.92 0.15 150 / 0.3);
+}
+
+/* METADATA SNAPSHOTS */
+.form-value-json,
+.doc-metadata-json {
+  background: var(--muted);
+  padding: 12px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+/* ============================================
+   CHANGE RECORDS (table highlight)
+============================================ */
+
+.change-value.old {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.change-value.new {
+  color: #059669;
+  font-weight: 600;
+}
+
+.hash-cell {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+/* ============================================
+   LOADING / EMPTY STATES
+============================================ */
+
+.table-loading,
+.table-empty {
+  text-align: center;
+  font-size: 16px;
+  padding: 24px;
+  color: var(--muted-foreground);
+}
+

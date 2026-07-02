@@ -16,6 +16,7 @@ from .services import (
 )
 
 from history.services import log_action
+from users.permissions import IsAdminOrReadOnly
 
 
 # ============================================================
@@ -36,6 +37,7 @@ class ProjectListCreateView(generics.ListCreateAPIView):
     """
 
     serializer_class = ProjectSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_serializer_context(self):
         return {"request": self.request}
@@ -87,6 +89,7 @@ class ProjectDetailView(generics.RetrieveUpdateAPIView):
     """
 
     serializer_class = ProjectSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_serializer_context(self):
         return {"request": self.request}

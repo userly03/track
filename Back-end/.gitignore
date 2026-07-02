@@ -1,10 +1,56 @@
+# Environment and secrets
 .env
+.env.*
+!.env.example
+
+# Python virtual environments
 venv/
+.venv/
+env/
+ENV/
+
+# Python bytecode and caches
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.python-version
+
+# Tests, coverage and type-check caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+
+# Packaging and build output
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Django runtime data
 db.sqlite3
+db.sqlite3-journal
 media/
 staticfiles/
+local/
+*.log
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Editors and operating systems
 .idea/
 .vscode/
-local/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini

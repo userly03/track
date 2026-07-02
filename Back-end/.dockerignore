@@ -1,0 +1,15 @@
+.git
+.gitignore
+.agents
+.env
+__pycache__
+*.py[cod]
+*.sqlite3
+*.log
+.pytest_cache
+.mypy_cache
+.ruff_cache
+venv
+local
+media
+staticfiles

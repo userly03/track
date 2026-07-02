@@ -14,10 +14,12 @@ from .services import (
 
 # 🟢 Auditoría History
 from history.services import log_action
+from users.permissions import IsAdminOrReadOnly
 
 
 class ProgressReportListCreateView(generics.ListCreateAPIView):
     serializer_class = ProgressReportSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_queryset(self):
         project_id = self.request.query_params.get("projectId")
@@ -58,6 +60,7 @@ class ProgressReportListCreateView(generics.ListCreateAPIView):
 
 class ProgressReportDetailView(generics.RetrieveUpdateAPIView):
     serializer_class = ProgressReportSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_object(self):
         progress_id = self.kwargs.get("id")

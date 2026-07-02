@@ -1,33 +1,27 @@
-# Imagen base de Python
 FROM python:3.12-slim
 
-# Dependencias necesarias para psycopg2, PostGIS y pg_isready
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpq-dev \
-    postgresql-client \
-    gdal-bin \
-    && rm -rf /var/lib/apt/lists/*
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
 
-# Carpeta de trabajo
 WORKDIR /app
 
-# Copiar archivo de dependencias
-COPY requirements.txt .
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        libpq-dev \
+        postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
 
-# Instalar dependencias de Python
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar todo el código del backend
 COPY . .
-
-# Evitar buffering en logs
-ENV PYTHONUNBUFFERED=1
-
-# Copiar entrypoint fuera de /app para que no quede sobrescrito por el bind mount
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-# Normalize Windows CRLF to LF and make entrypoint executable
-RUN sed -i 's/\r$//' /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/entrypoint.sh
+RUN sed -i 's/\r$//' /usr/local/bin/entrypoint.sh \
+    && chmod +x /usr/local/bin/entrypoint.sh
 
-# Usar entrypoint que espera a PostgreSQL
+EXPOSE 8000
+
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

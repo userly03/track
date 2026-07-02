@@ -1,0 +1,236 @@
+/* ==========================================================
+   FORMULARIOS – TrackBuild Admin PRO
+   (Estilo unificado para subir/editar documentos)
+========================================================== */
+
+/* Contenedor general */
+.projects-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* Header del formulario */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.projects-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* CARD DEL FORMULARIO */
+.form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* GRID del formulario */
+.doc-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Texto de etiquetas */
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--foreground);
+  font-size: 14px;
+}
+
+/* CAMPOS INPUT/SELECT */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+/* Focus profesional */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px oklch(0.85 0.25 260 / 0.4);
+}
+
+/* Descripción */
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* ARCHIVO */
+.form-hint {
+  font-size: 12px;
+  margin-top: 4px;
+  color: var(--muted-foreground);
+}
+
+/* ERRORES */
+.form-error {
+  background: oklch(0.96 0.18 20);
+  border: 1px solid oklch(0.75 0.15 20);
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  color: oklch(0.45 0.20 25);
+  font-weight: 600;
+}
+
+.form-error-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: oklch(0.50 0.25 20);
+}
+
+/* RESULTADO SUBIDA */
+.upload-result {
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.upload-result.success {
+  background: oklch(0.90 0.16 150);
+  border: 1px solid oklch(0.70 0.15 150);
+  color: oklch(0.35 0.18 150);
+}
+
+.upload-result.warning {
+  background: oklch(0.96 0.12 40);
+  border: 1px solid oklch(0.80 0.13 40);
+  color: oklch(0.45 0.22 30);
+}
+
+.upload-result-hint {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* BOTONES */
+.form-actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-secondary,
+.btn-primary {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .projects-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+/* ==========================================================
+   BASE LAYOUT – TrackBuild Admin (reemplazo limpio de projects-admin.css)
+========================================================== */
+
+/* Contenedor principal de todas las páginas admin */
+.admin-page-wrapper,
+.projects-container,
+.documents-wrapper {
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-bottom: 4px;
+}
+
+/* Títulos principales */
+.page-title,
+.projects-title,
+.documents-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+/* Subtítulo */
+.page-subtitle,
+.documents-subtitle {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-bottom: 12px;
+}
+
+/* Header flexible (botones + título) */
+.page-header,
+.projects-header,
+.documents-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tabla — separación superior */
+.table-container {
+  margin-top: 12px;
+}

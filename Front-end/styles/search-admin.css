@@ -1,0 +1,339 @@
+/* ============================================
+   SEARCH - TRACKBUILD PRO
+   Estilo uniforme, limpio, profesional
+   ============================================ */
+
+/* --------- LAYOUT GENERAL --------- */
+
+.search-container {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  color: #1a1a1a;
+}
+
+.search-header {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.search-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0d47a1;
+}
+
+.search-subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* --------- SEARCH BAR --------- */
+
+.search-form {
+  width: 100%;
+}
+
+.search-input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #cfd8dc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.search-input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.btn-primary {
+  padding: 12px 18px;
+  background: #1976d2;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #0d47a1;
+}
+
+.btn-secondary {
+  padding: 10px 16px;
+  background: #eceff1;
+  color: #333;
+  border-radius: 6px;
+  border: 1px solid #cfd8dc;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #cfd8dc;
+}
+
+/* --------- LAYOUT PRINCIPAL --------- */
+
+.search-layout {
+  display: flex;
+  gap: 25px;
+}
+
+/* --------- SIDEBAR/ FILTER PANEL --------- */
+
+.search-sidebar {
+  width: 270px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 18px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d47a1;
+}
+
+.filters-toggle {
+  background: none;
+  border: none;
+  color: #1976d2;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.filters-content {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-section-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #37474f;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.filter-input,
+.filter-select {
+  padding: 9px 10px;
+  border: 1px solid #cfd8dc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.filter-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* --------- RESULTS AREA --------- */
+
+.search-main {
+  flex: 1;
+}
+
+.search-error {
+  padding: 12px;
+  background: #ffebee;
+  border: 1px solid #ef9a9a;
+  color: #b71c1c;
+  border-radius: 6px;
+}
+
+.search-results-header {
+  margin-bottom: 10px;
+}
+
+.search-results-count {
+  font-size: 16px;
+  font-weight: 600;
+  color: #37474f;
+}
+
+/* --------- RESULTS CARDS --------- */
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.search-result-card {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.search-result-card:hover {
+  border-color: #1976d2;
+  background: #f3f9ff;
+}
+
+.search-result-icon {
+  font-size: 32px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-result-content {
+  flex: 1;
+}
+
+.search-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.search-result-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d47a1;
+  margin: 0;
+}
+
+.search-result-type {
+  font-size: 13px;
+  background: #e3f2fd;
+  color: #0d47a1;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.search-result-meta {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  padding: 3px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.badge-project {
+  background: #e8eaf6;
+  color: #1a237e;
+}
+
+.badge-score {
+  background: #e0f2f1;
+  color: #004d40;
+}
+
+.badge-metadata {
+  background: #f1f8e9;
+  color: #33691e;
+}
+
+.search-result-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* --------- PAGINATION --------- */
+
+.search-pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pagination-btn {
+  padding: 8px 14px;
+  border: 1px solid #cfd8dc;
+  background: #eceff1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination-btn:hover {
+  background: #cfd8dc;
+}
+
+.pagination-info {
+  font-size: 14px;
+  color: #555;
+}
+
+/* --------- EMPTY STATE --------- */
+
+.search-empty {
+  padding: 20px;
+  text-align: center;
+  color: #555;
+}
+
+.search-empty-hint {
+  font-size: 13px;
+  color: #888;
+}
+
+.search-loading {
+  padding: 20px;
+  text-align: center;
+}
+
+.loading-spinner {
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #0d47a1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+  margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

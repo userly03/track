@@ -1,0 +1,193 @@
+/* ===========================================================
+   REPORTING MODULE – TrackBuild PRO
+   Archivo: /styles/reporting-admin.css
+   =========================================================== */
+
+/* ----------- CONTENEDOR GENERAL ----------- */
+.reporting-container {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ----------- HEADER ----------- */
+.reporting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reporting-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.reporting-subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* ----------- CARDS ----------- */
+.reporting-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.6rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #e6e6e6;
+}
+
+.reporting-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.reporting-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ----------- SELECTOR DE PROYECTOS ----------- */
+.reporting-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.reporting-select {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.reporting-select:focus {
+  outline: none;
+  border-color: #007bff;
+  background: #fff;
+}
+
+/* ----------- GRID DE BOTONES ----------- */
+.reporting-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* ----------- BOTONES ----------- */
+.reporting-button {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+/* Colores específicos */
+.reporting-button.primary {
+  background: #0066ff;
+}
+
+.reporting-button.primary:hover {
+  background: #0052cc;
+}
+
+.reporting-button.warning {
+  background: #ff9800;
+}
+
+.reporting-button.warning:hover {
+  background: #e68a00;
+}
+
+.reporting-button.success {
+  background: #28a745;
+}
+
+.reporting-button.success:hover {
+  background: #1f8b39;
+}
+
+/* Cuando están generando */
+.reporting-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ----------- LOADING / ERROR ----------- */
+.reporting-loading,
+.reporting-error {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.reporting-loading {
+  color: #007bff;
+}
+
+.reporting-error {
+  color: #cc0000;
+}
+
+/* ----------- TOAST ----------- */
+.reporting-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 1rem 1.4rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  animation: fadeIn 0.2s ease-out;
+  z-index: 1000;
+}
+
+.reporting-toast.success {
+  background: #28a745;
+}
+
+.reporting-toast.error {
+  background: #d32f2f;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------- BOTÓN VOLVER ----------- */
+.btn-secondary {
+  background: #e6e6e6;
+  color: #333;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background: #d4d4d4;
+}
