@@ -1,0 +1,399 @@
+{
+  "info": {
+    "name": "Track API - Postman Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "track-api-collection"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8081" },
+    { "key": "access_token", "value": "" },
+    { "key": "project_id", "value": "1" },
+    { "key": "purchase_id", "value": "1" },
+    { "key": "delivery_id", "value": "1" },
+    { "key": "document_id", "value": "1" },
+    { "key": "progress_id", "value": "1" },
+    { "key": "alert_id", "value": "1" },
+    { "key": "history_id", "value": "1" },
+    { "key": "validation_item_id", "value": "1" },
+    { "key": "item_id", "value": "1" },
+    { "key": "related_type", "value": "purchase" },
+    { "key": "related_id", "value": "1" },
+    { "key": "model_name", "value": "purchase" },
+    { "key": "object_id", "value": "1" },
+    { "key": "material", "value": "cemento" },
+    { "key": "search_query", "value": "cemento" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/api/auth/register/", "host": ["{{base_url}}"], "path": ["api","auth","register",""] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"demo1\",\n  \"email\": \"demo1@mail.com\",\n  \"password\": \"Password123\",\n  \"role\": \"admin\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/api/auth/login/", "host": ["{{base_url}}"], "path": ["api","auth","login",""] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"demo1\",\n  \"password\": \"Password123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/auth/me/", "host": ["{{base_url}}"], "path": ["api","auth","me",""] }
+          }
+        },
+        {
+          "name": "Token Obtain (alternate)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/api/token/", "host": ["{{base_url}}"], "path": ["api","token",""] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"demo1\",\n  \"password\": \"Password123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Token Refresh",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{base_url}}/api/token/refresh/", "host": ["{{base_url}}"], "path": ["api","token","refresh",""] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"<REFRESH_TOKEN>\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "List Projects",
+          "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/projects/", "host": ["{{base_url}}"], "path": ["api","projects",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] }
+        },
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{access_token}}" } ],
+            "url": { "raw": "{{base_url}}/api/projects/", "host": ["{{base_url}}"], "path": ["api","projects",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"code\": \"PRJ-001\",\n  \"name\": \"Project Alpha\",\n  \"location\": \"Quito, Main St 123\",\n  \"start_date\": \"2026-05-01\",\n  \"end_date_estimated\": \"2027-12-31\",\n  \"progress\": \"0.00\",\n  \"status\": \"active\",\n  \"metadata\": {\n    \"supervisor\": \"Juan Perez\",\n    \"budget\": 1000000\n  }\n}", "options": { "raw": { "language": "json" } } }
+          }
+        },
+        {
+          "name": "Project Detail",
+          "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/projects/{{project_id}}/", "host": ["{{base_url}}"], "path": ["api","projects","{{project_id}}",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] }
+        },
+        {
+          "name": "Project KPI",
+          "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/projects/{{project_id}}/kpi/", "host": ["{{base_url}}"], "path": ["api","projects","{{project_id}}","kpi",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] }
+        },
+        {
+          "name": "Dashboard KPI",
+          "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/projects/dashboard/kpi/", "host": ["{{base_url}}"], "path": ["api","projects","dashboard","kpi",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] }
+        }
+      ]
+    },
+    {
+      "name": "Purchases",
+      "item": [
+        { "name": "List Purchases", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/purchases/", "host": ["{{base_url}}"], "path": ["api","purchases",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } },
+        {
+          "name": "Create Purchase",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{access_token}}" } ],
+            "url": { "raw": "{{base_url}}/api/purchases/", "host": ["{{base_url}}"], "path": ["api","purchases",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"project\": 1,\n  \"item_name\": \"Cement Bags\",\n  \"quantity\": 100,\n  \"unit_price\": \"12.50\",\n  \"supplier\": \"Proveedor S.A.\",\n  \"status\": \"pending\",\n  \"metadata\": { \"order_reference\": \"ORD-123\" }\n}", "options": { "raw": { "language": "json" } } }
+          }
+        },
+        { "name": "Purchase Detail", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/purchases/{{purchase_id}}/", "host": ["{{base_url}}"], "path": ["api","purchases","{{purchase_id}}",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } }
+      ]
+    },
+    {
+      "name": "Deliveries",
+      "item": [
+        { "name": "List Deliveries", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/deliveries/", "host": ["{{base_url}}"], "path": ["api","deliveries",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } },
+        {
+          "name": "Create Delivery",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{access_token}}" } ],
+            "url": { "raw": "{{base_url}}/api/deliveries/", "host": ["{{base_url}}"], "path": ["api","deliveries",""] },
+            "body": { "mode": "raw", "raw": "{\n  \"project\": 1,\n  \"purchase\": 1,\n  \"description\": \"Delivery of cement bags\",\n  \"quantity\": 100,\n  \"unit\": \"bags\",\n  \"date\": \"2026-05-10\",\n  \"status\": \"pending\",\n  \"metadata\": { \"received_by\": \"Site Office\" }\n}", "options": { "raw": { "language": "json" } } }
+          }
+        },
+        { "name": "Delivery Detail", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/deliveries/{{delivery_id}}/", "host": ["{{base_url}}"], "path": ["api","deliveries","{{delivery_id}}",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } }
+      ]
+    },
+    {
+      "name": "Documents",
+      "item": [
+        { "name": "List Documents", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/documents/", "host": ["{{base_url}}"], "path": ["api","documents",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } },
+        {
+          "name": "Upload Document (form-data)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/documents/upload/", "host": ["{{base_url}}"], "path": ["api","documents","upload",""] },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "file", "type": "file", "src": "<select file>" },
+                { "key": "projectId", "type": "text", "value": "1" },
+                { "key": "title", "type": "text", "value": "Signed Contract" },
+                { "key": "description", "type": "text", "value": "Initial contract upload" },
+                { "key": "metadata", "type": "text", "value": "{\"document_ref\":\"DOC-001\"}" },
+                { "key": "document_type", "type": "text", "value": "contract" },
+                { "key": "issue_date", "type": "text", "value": "2026-05-01" },
+                { "key": "author", "type": "text", "value": "Engineering" },
+                { "key": "responsible_area", "type": "text", "value": "Legal" },
+                { "key": "sensitivity_level", "type": "text", "value": "low" }
+              ]
+            }
+          }
+        },
+        { "name": "Document Versions", "request": { "method": "GET", "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }], "url": { "raw": "{{base_url}}/api/documents/{{document_id}}/versions/", "host": ["{{base_url}}"], "path": ["api","documents","{{document_id}}","versions",""] } } },
+        { "name": "Document History", "request": { "method": "GET", "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }], "url": { "raw": "{{base_url}}/api/documents/{{document_id}}/history/", "host": ["{{base_url}}"], "path": ["api","documents","{{document_id}}","history",""] } } },
+        { "name": "Document Download", "request": { "method": "GET", "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }], "url": { "raw": "{{base_url}}/api/documents/{{document_id}}/download/", "host": ["{{base_url}}"], "path": ["api","documents","{{document_id}}","download",""] } } }
+      ]
+    },
+    {
+      "name": "Progress Reports",
+      "item": [
+        { "name": "List Progress", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/progress/", "host": ["{{base_url}}"], "path": ["api","progress",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } },
+        { "name": "Create Progress", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{access_token}}" } ], "url": { "raw": "{{base_url}}/api/progress/", "host": ["{{base_url}}"], "path": ["api","progress",""] }, "body": { "mode": "raw", "raw": "{\n  \"project\": 1,\n  \"description\": \"Week 1 progress summary\",\n  \"percentage\": \"5.00\",\n  \"date\": \"2026-05-07\",\n  \"status\": \"pending\",\n  \"metadata\": { \"notes\": \"Initial mobilization\" }\n}", "options": { "raw": { "language": "json" } } } } },
+        { "name": "Progress Detail", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/progress/{{progress_id}}/", "host": ["{{base_url}}"], "path": ["api","progress","{{progress_id}}",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } }
+      ]
+    },
+    {
+      "name": "Reporting",
+      "item": [
+        { "name": "Project PDF Report", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/reporting/project/{{project_id}}/pdf/", "host": ["{{base_url}}"], "path": ["api","reporting","project","{{project_id}}","pdf",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } },
+        { "name": "Alerts PDF Report", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/reporting/alerts/{{project_id}}/pdf/", "host": ["{{base_url}}"], "path": ["api","reporting","alerts","{{project_id}}","pdf",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } },
+        { "name": "Financial PDF Report", "request": { "method": "GET", "url": { "raw": "{{base_url}}/api/reporting/financial/{{project_id}}/pdf/", "host": ["{{base_url}}"], "path": ["api","reporting","financial","{{project_id}}","pdf",""] }, "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }] } }
+      ]
+    },
+    {
+      "name": "Alerts",
+      "item": [
+        {
+          "name": "List Alerts",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/alerts/", "host": ["{{base_url}}"], "path": ["api", "alerts", ""] }
+          }
+        },
+        {
+          "name": "Alert Detail",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/alerts/{{alert_id}}/", "host": ["{{base_url}}"], "path": ["api", "alerts", "{{alert_id}}", ""] }
+          }
+        },
+        {
+          "name": "Resolve Alert",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/api/alerts/{{alert_id}}/resolve/", "host": ["{{base_url}}"], "path": ["api", "alerts", "{{alert_id}}", "resolve", ""] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"resolved\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "History",
+      "item": [
+        {
+          "name": "List History",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/history/?limit=20", "host": ["{{base_url}}"], "path": ["api", "history", ""] }
+          }
+        },
+        {
+          "name": "History Detail",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/history/{{history_id}}/", "host": ["{{base_url}}"], "path": ["api", "history", "{{history_id}}", ""] }
+          }
+        },
+        {
+          "name": "History By Project",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/history/project/{{project_id}}/?limit=20", "host": ["{{base_url}}"], "path": ["api", "history", "project", "{{project_id}}", ""] }
+          }
+        },
+        {
+          "name": "History By Entity",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/history/entity/{{related_type}}/{{related_id}}/?limit=20", "host": ["{{base_url}}"], "path": ["api", "history", "entity", "{{related_type}}", "{{related_id}}", ""] }
+          }
+        },
+        {
+          "name": "Change Records",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/history/changes/", "host": ["{{base_url}}"], "path": ["api", "history", "changes", ""] }
+          }
+        },
+        {
+          "name": "Change Records By Entity",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/history/changes/entity/{{model_name}}/{{object_id}}/", "host": ["{{base_url}}"], "path": ["api", "history", "changes", "entity", "{{model_name}}", "{{object_id}}", ""] }
+          }
+        },
+        {
+          "name": "Change Records By Project",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/history/changes/project/{{project_id}}/", "host": ["{{base_url}}"], "path": ["api", "history", "changes", "project", "{{project_id}}", ""] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Market",
+      "item": [
+        {
+          "name": "Market Price",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/api/market/price/?material={{material}}", "host": ["{{base_url}}"], "path": ["api", "market", "price", ""] }
+          }
+        },
+        {
+          "name": "Market ML Legacy",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/api/market/ml/?material={{material}}", "host": ["{{base_url}}"], "path": ["api", "market", "ml", ""] }
+          }
+        },
+        {
+          "name": "Market Materials",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/api/market/materials/", "host": ["{{base_url}}"], "path": ["api", "market", "materials", ""] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Global Search",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/api/search/?q={{search_query}}&page=1&page_size=20&ordering=-score&filters={}", "host": ["{{base_url}}"], "path": ["api", "search", ""] }
+          }
+        },
+        {
+          "name": "Search Projects Only",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/api/search/?q={{search_query}}&filters={\"projects\":{\"status\":\"active\"}}", "host": ["{{base_url}}"], "path": ["api", "search", ""] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Validation",
+      "item": [
+        {
+          "name": "Validation List",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/validation/", "host": ["{{base_url}}"], "path": ["api", "validation", ""] }
+          }
+        },
+        {
+          "name": "Validation Detail",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": { "raw": "{{base_url}}/api/validation/{{validation_item_id}}/", "host": ["{{base_url}}"], "path": ["api", "validation", "{{validation_item_id}}", ""] }
+          }
+        },
+        {
+          "name": "Validation Approve",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/api/validation/{{item_id}}/approve/", "host": ["{{base_url}}"], "path": ["api", "validation", "{{item_id}}", "approve", ""] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": \"Revisado y conforme\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Validation Reject",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/api/validation/{{item_id}}/reject/", "host": ["{{base_url}}"], "path": ["api", "validation", "{{item_id}}", "reject", ""] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": \"Faltan soportes del registro\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
